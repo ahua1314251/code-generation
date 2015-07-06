@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   <mapper namespace="mybatis.Sys_userMapper">
+    
+    <select id="sys_userlInsert" parameterType="Material"  statementType="CALLABLE">
+    <![CDATA[
+   {
+   Call uspSys_userCreate001(
+                 #{iD,jdbcType=INTEGER}, 
+                 #{loginID,jdbcType=VARCHAR}, 
+                 #{password,jdbcType=VARCHAR}, 
+                 #{userName,jdbcType=VARCHAR}, 
+                 #{email,jdbcType=VARCHAR}, 
+                 #{phoneNumber,jdbcType=VARCHAR}, 
+                 #{age,jdbcType=INTEGER}, 
+                 #{img,jdbcType=VARCHAR}, 
+                 #{sex,jdbcType=BIT}, 
+                 #{qQ,jdbcType=VARCHAR}, 
+                 #{createBy,jdbcType=VARCHAR}, 
+                 #{createTime,jdbcType=TIMESTAMP}, 
+                 #{updateBy,jdbcType=VARCHAR}, 
+                 #{updateTime,jdbcType= TIMESTAMP}
+            )
+      }
+       ]]>
+    </select>
+    
+   <select id="sys_userUpdate" parameterType="Sys_user"  statementType="CALLABLE">
+    <![CDATA[
+   {
+   Call uspSys_userUpdate001(
+                 #{iD,jdbcType=INTEGER}, 
+                 #{loginID,jdbcType=VARCHAR}, 
+                 #{password,jdbcType=VARCHAR}, 
+                 #{userName,jdbcType=VARCHAR}, 
+                 #{email,jdbcType=VARCHAR}, 
+                 #{phoneNumber,jdbcType=VARCHAR}, 
+                 #{age,jdbcType=INTEGER}, 
+                 #{img,jdbcType=VARCHAR}, 
+                 #{sex,jdbcType=BIT}, 
+                 #{qQ,jdbcType=VARCHAR}, 
+                 #{createBy,jdbcType=VARCHAR}, 
+                 #{createTime,jdbcType=TIMESTAMP}, 
+                 #{updateBy,jdbcType=VARCHAR}, 
+                 #{updateTime,jdbcType= TIMESTAMP}
+            )
+      }
+       ]]>
+    </select>
+    
+   <select id="sys_userGet" parameterType="Sys_user"  statementType="CALLABLE">
+    <![CDATA[
+   {
+   Call uspSys_userGet001(
+                 #{iD,jdbcType=INTEGER}, 
+                 #{loginID,jdbcType=VARCHAR}, 
+                 #{password,jdbcType=VARCHAR}, 
+                 #{userName,jdbcType=VARCHAR}, 
+                 #{email,jdbcType=VARCHAR}, 
+                 #{phoneNumber,jdbcType=VARCHAR}, 
+                 #{age,jdbcType=INTEGER}, 
+                 #{img,jdbcType=VARCHAR}, 
+                 #{sex,jdbcType=BIT}, 
+                 #{qQ,jdbcType=VARCHAR}, 
+                 #{createBy,jdbcType=VARCHAR}, 
+                 #{createTime,jdbcType=TIMESTAMP}, 
+                 #{updateBy,jdbcType=VARCHAR}, 
+                 #{updateTime,jdbcType= TIMESTAMP}
+            )
+      }
+       ]]>
+    </select>
+    
+    <select id="sys_userDelete" parameterType="Sys_user"  statementType="CALLABLE">
+    <![CDATA[
+   {
+   Call uspSys_userDelete001(
+                 #{iD,jdbcType=INTEGER}, 
+                 #{loginID,jdbcType=VARCHAR}, 
+                 #{password,jdbcType=VARCHAR}, 
+                 #{userName,jdbcType=VARCHAR}, 
+                 #{email,jdbcType=VARCHAR}, 
+                 #{phoneNumber,jdbcType=VARCHAR}, 
+                 #{age,jdbcType=INTEGER}, 
+                 #{img,jdbcType=VARCHAR}, 
+                 #{sex,jdbcType=BIT}, 
+                 #{qQ,jdbcType=VARCHAR}, 
+                 #{createBy,jdbcType=VARCHAR}, 
+                 #{createTime,jdbcType=TIMESTAMP}, 
+                 #{updateBy,jdbcType=VARCHAR}, 
+                 #{updateTime,jdbcType= TIMESTAMP}
+            )
+      }
+       ]]>
+    </select>
+    
+    
+    <select id="sys_userSearch" parameterType="Sys_userCriteria"  statementType="CALLABLE">
+    <![CDATA[
+   {
+   Call uspSys_userSearch001(
+			 #{limit,jdbcType=INTEGER},
+		     #{offset,jdbcType=INTEGER},
+		     #{sort,jdbcType=VARCHAR}, 
+		     #{order,jdbcType=VARCHAR}, 
+                 #{iD,jdbcType=INTEGER}, 
+                 #{loginID,jdbcType=VARCHAR}, 
+                 #{password,jdbcType=VARCHAR}, 
+                 #{userName,jdbcType=VARCHAR}, 
+                 #{email,jdbcType=VARCHAR}, 
+                 #{phoneNumber,jdbcType=VARCHAR}, 
+                 #{age,jdbcType=INTEGER}, 
+                 #{img,jdbcType=VARCHAR}, 
+                 #{sex,jdbcType=BIT}, 
+                 #{qQ,jdbcType=VARCHAR}, 
+                 #{createBy,jdbcType=VARCHAR}, 
+                 #{createTime,jdbcType=TIMESTAMP}, 
+                 #{updateBy,jdbcType=VARCHAR}, 
+                 #{updateTime,jdbcType= TIMESTAMP}
+            )
+      }
+       ]]>
+    </select>
+    
+   <select id="sys_userListGet" parameterType="Sys_user"  statementType="CALLABLE">
+    <![CDATA[
+   {
+   Call uspSys_userListGet001(
+                 #{iD,jdbcType=INTEGER}, 
+                 #{loginID,jdbcType=VARCHAR}, 
+                 #{password,jdbcType=VARCHAR}, 
+                 #{userName,jdbcType=VARCHAR}, 
+                 #{email,jdbcType=VARCHAR}, 
+                 #{phoneNumber,jdbcType=VARCHAR}, 
+                 #{age,jdbcType=INTEGER}, 
+                 #{img,jdbcType=VARCHAR}, 
+                 #{sex,jdbcType=BIT}, 
+                 #{qQ,jdbcType=VARCHAR}, 
+                 #{createBy,jdbcType=VARCHAR}, 
+                 #{createTime,jdbcType=TIMESTAMP}, 
+                 #{updateBy,jdbcType=VARCHAR}, 
+                 #{updateTime,jdbcType= TIMESTAMP}
+            )
+      }
+       ]]>
+    </select>
+    
+    
+    
+   </mapper>

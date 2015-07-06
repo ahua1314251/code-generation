@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dbConfigurations>
+<dbConfiguration>
+    <driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver>
+    <url>jdbc:sqlserver://127.0.0.1:1433</url>
+    <userName>SP_DBLogin</userName>
+    <passWord>Scotiabank1</passWord>
+    <hostName>127.0.0.1</hostName>
+    <port>1433</port>
+    <name>SQL_local</name>
+    
+    <dbType>sqlServer</dbType>
+</dbConfiguration>
+
+<dbConfiguration>
+    <driver>com.mysql.jdbc.Driver</driver>
+    <url>jdbc:mysql://localhost:3306</url>
+    <hostName>127.0.0.1</hostName>
+    <userName>root</userName>
+    <name>MysqlLocal</name>
+    <passWord>1314251</passWord>
+    <port>1366</port>
+    <dbType>mySql</dbType>
+</dbConfiguration>
+</dbConfigurations>

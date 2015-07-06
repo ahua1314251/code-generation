@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.web.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.effect.*?>
+
+<AnchorPane fx:id="mainView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600" prefWidth="800" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
+   <children>
+      <SplitPane dividerPositions="0.1266" orientation="VERTICAL" prefHeight="480.0" prefWidth="640.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane fx:id="optionView" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <ImageView fx:id="logo" fitHeight="50.0" fitWidth="50.0" layoutX="734.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
+                  <MenuBar layoutY="1.0" prefHeight="26.0" prefWidth="798.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                    <menus>
+                      <Menu mnemonicParsing="false" text="File">
+                        <items>
+                          <MenuItem mnemonicParsing="false" text="Close" />
+                        </items>
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="Edit">
+                        <items>
+                          <MenuItem mnemonicParsing="false" text="Delete" />
+                        </items>
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="Help">
+                        <items>
+                          <MenuItem mnemonicParsing="false" text="About" />
+                        </items>
+                      </Menu>
+                    </menus>
+                  </MenuBar>
+                  <HBox layoutY="27.0" prefHeight="44.0" prefWidth="782.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="16.0">
+                     <children>
+                        <MenuButton layoutX="14.0" layoutY="27.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="99.0" text="     连  接" textAlignment="CENTER">
+                          <items>
+                            <MenuItem id="MItem_mySql" mnemonicParsing="false" text="    MySql" />
+                            <MenuItem id="MItem_sqlServer" mnemonicParsing="false" text="    Sql Server  " />
+                              <MenuItem id="MItem_oracle" mnemonicParsing="false" text="    Oracle" />
+                              <MenuItem id="MItem_db2" mnemonicParsing="false" text="    db2" />
+                          </items>
+                        </MenuButton>
+                        <MenuButton layoutX="113.0" layoutY="27.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="99.0" text="      用  户" textAlignment="CENTER">
+                          <items>
+                            <MenuItem mnemonicParsing="false" text="   登  陆" />
+                            <MenuItem mnemonicParsing="false" text="   服务器角色" />
+                          </items>
+                        </MenuButton>
+                        <Button fx:id="genButton" mnemonicParsing="false" prefHeight="42.0" prefWidth="99.0" text="生成代码" />
+                     </children>
+                  </HBox>
+               </children></AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <SplitPane dividerPositions="0.25" layoutY="21.0" prefHeight="379.0" prefWidth="638.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                              <TreeView fx:id="treeView" layoutX="-4.0" layoutY="-1.0" prefHeight="519.0" prefWidth="202.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="-4.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="-1.0" />
+                           </children>
+                      </AnchorPane>
+                      <AnchorPane fx:id="flowPaneRoot" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                              <FlowPane fx:id="flowPane" layoutX="85.0" layoutY="63.0" prefHeight="377.0" prefWidth="474.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                               </FlowPane>
+                           </children>
+                      </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

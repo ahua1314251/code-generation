@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   <mapper namespace="mybatis.${tableNameFU}Mapper">
+    
+    <select id="${tableNameFL}lInsert" parameterType="Material"  statementType="CALLABLE">
+    <![CDATA[
+   {
+   Call usp${tableNameFU}Create001(
+        #foreach($column in $columns)
+    #if($velocityCount==$columns.size())   
+     #{$column.getCOLUMN_NAMEFL(),jdbcType= $column.getTYPE_NAME_MyBatis()}
+    #else
+     #{$column.getCOLUMN_NAMEFL(),jdbcType=$column.getTYPE_NAME_MyBatis()}, 
+    #end
+    #end
+    )
+      }
+       ]]>
+    </select>
+    
+   <select id="${tableNameFL}Update" parameterType="$tableNameFU"  statementType="CALLABLE">
+    <![CDATA[
+   {
+   Call usp${tableNameFU}Update001(
+        #foreach($column in $columns)
+    #if($velocityCount==$columns.size())   
+     #{$column.getCOLUMN_NAMEFL(),jdbcType= $column.getTYPE_NAME_MyBatis()}
+    #else
+     #{$column.getCOLUMN_NAMEFL(),jdbcType=$column.getTYPE_NAME_MyBatis()}, 
+    #end
+    #end
+    )
+      }
+       ]]>
+    </select>
+    
+   <select id="${tableNameFL}Get" parameterType="$tableNameFU"  statementType="CALLABLE">
+    <![CDATA[
+   {
+   Call usp${tableNameFU}Get001(
+        #foreach($column in $columns)
+    #if($velocityCount==$columns.size())   
+     #{$column.getCOLUMN_NAMEFL(),jdbcType= $column.getTYPE_NAME_MyBatis()}
+    #else
+     #{$column.getCOLUMN_NAMEFL(),jdbcType=$column.getTYPE_NAME_MyBatis()}, 
+    #end
+    #end
+    )
+      }
+       ]]>
+    </select>
+    
+    <select id="${tableNameFL}Delete" parameterType="$tableNameFU"  statementType="CALLABLE">
+    <![CDATA[
+   {
+   Call usp${tableNameFU}Delete001(
+        #foreach($column in $columns)
+    #if($velocityCount==$columns.size())   
+     #{$column.getCOLUMN_NAMEFL(),jdbcType= $column.getTYPE_NAME_MyBatis()}
+    #else
+     #{$column.getCOLUMN_NAMEFL(),jdbcType=$column.getTYPE_NAME_MyBatis()}, 
+    #end
+    #end
+    )
+      }
+       ]]>
+    </select>
+    
+    
+    <select id="${tableNameFL}Search" parameterType="${tableNameFU}Criteria"  statementType="CALLABLE">
+    <![CDATA[
+   {
+   Call usp${tableNameFU}Search001(
+			 #{limit,jdbcType=INTEGER},
+		     #{offset,jdbcType=INTEGER},
+		     #{sort,jdbcType=VARCHAR}, 
+		     #{order,jdbcType=VARCHAR}, 
+        #foreach($column in $columns)
+    #if($velocityCount==$columns.size())   
+     #{$column.getCOLUMN_NAMEFL(),jdbcType= $column.getTYPE_NAME_MyBatis()}
+    #else
+     #{$column.getCOLUMN_NAMEFL(),jdbcType=$column.getTYPE_NAME_MyBatis()}, 
+    #end
+    #end
+    )
+      }
+       ]]>
+    </select>
+    
+   <select id="${tableNameFL}ListGet" parameterType="$tableNameFU"  statementType="CALLABLE">
+    <![CDATA[
+   {
+   Call usp${tableNameFU}ListGet001(
+        #foreach($column in $columns)
+    #if($velocityCount==$columns.size())   
+     #{$column.getCOLUMN_NAMEFL(),jdbcType= $column.getTYPE_NAME_MyBatis()}
+    #else
+     #{$column.getCOLUMN_NAMEFL(),jdbcType=$column.getTYPE_NAME_MyBatis()}, 
+    #end
+    #end
+    )
+      }
+       ]]>
+    </select>
+    
+    
+    
+   </mapper>
