@@ -1,11 +1,15 @@
 package application.gen.bean;
 
+import application.util.StringUtil;
+
 public class Column {
 
-	String COLUMN_NAME;
-	String TYPE_NAME;
-	String COLUMN_SIZE;
-	String NULLABLE;
+	
+	private String COLUMN_NAME;
+	private String COLUMN_BEAN_NAME;
+	private String TYPE_NAME;
+	private String COLUMN_SIZE;
+	private String NULLABLE;
 	
 	public Column(){
 		
@@ -27,30 +31,32 @@ public class Column {
 			COLUMN_SIZE="";
 		}
 		TYPE_NAME=TYPE_NAME.toUpperCase();
+		COLUMN_BEAN_NAME = StringUtil.convertToHump(COLUMN_NAME);
 	}
 	
 	public String getCOLUMN_NAME() {
 		return COLUMN_NAME;
 	}
 	public String getCOLUMN_NAMEFU() {
-		return COLUMN_NAME.replaceFirst(COLUMN_NAME.substring(0, 1), COLUMN_NAME.substring(0, 1).toUpperCase());
+		return StringUtil.convertToFU(COLUMN_NAME);
 	}
 	public String getCOLUMN_NAMEFL() {
-		return COLUMN_NAME.replaceFirst(COLUMN_NAME.substring(0, 1), COLUMN_NAME.substring(0, 1).toLowerCase());
+		return StringUtil.convertToFL(COLUMN_NAME);
 	}
-	
-	
 	public void setCOLUMN_NAME(String cOLUMN_NAME) {
 		COLUMN_NAME = cOLUMN_NAME;
 	}
 	public String getTYPE_NAME() {
 		return TYPE_NAME;
-	}
-	
+	}	
 	public String getTYPE_NAME_MyBatis() {
 		if(TYPE_NAME.equalsIgnoreCase("int"))
 		{
 			return "INTEGER";
+		}
+		if(TYPE_NAME.equalsIgnoreCase("long"))
+		{
+			return "BIGINT";
 		}
 		if(TYPE_NAME.equalsIgnoreCase("datetime"))
 		{
@@ -95,6 +101,10 @@ public class Column {
 	public void setNULLABLE(String nULLABLE) {
 		NULLABLE = nULLABLE;
 	}
-	
-	
+	public String getCOLUMN_BEAN_NAME() {
+		return COLUMN_BEAN_NAME;
+	}
+	public void setCOLUMN_BEAN_NAME(String cOLUMN_BEAN_NAME) {
+		COLUMN_BEAN_NAME = cOLUMN_BEAN_NAME;
+	}
 }
