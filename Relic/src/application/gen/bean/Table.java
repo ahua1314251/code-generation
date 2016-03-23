@@ -36,7 +36,8 @@ public class Table {
 	public String getTABLE_BEAN_NAME() {
 		return StringUtil.convertToHump(TABLE_NAME);
 	}
-
+	
+	
 	public List<Column> getColumns() {
 		return columns;
 	}

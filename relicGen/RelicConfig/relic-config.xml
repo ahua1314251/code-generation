@@ -2,7 +2,7 @@
 <Templates>
 
 
-<Template>
+<!-- <Template>
 <templatePath>RelicConfig/template/mybatisSQL/Mapper.xml</templatePath>
 <dbType>mySql</dbType>
 <genDir>RelicConfig/gen/mybatisSQL/</genDir>
@@ -26,6 +26,15 @@
 <namePre></namePre>
 <nameSuf>.java</nameSuf>
 </Template>
+ -->
 
+<Template>
+<templatePath>RelicConfig/template/mybatis/generatorConfigMyBatis3.xml</templatePath>
+<dbType>mySql</dbType>
+<genDir>RelicConfig/gen/mybatisSQL/</genDir>
+<namePre></namePre>
+<nameSuf>.xml</nameSuf>
+<type>2</type>
+</Template>
 
 </Templates>

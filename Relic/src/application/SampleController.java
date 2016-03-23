@@ -47,6 +47,7 @@ public class SampleController  implements Initializable{
      @FXML FlowPane flowPane;
      @FXML AnchorPane flowPaneRoot;
      @FXML Button genButton;
+     @FXML Button genMybatisButton;
      
 	public ObservableList<String> getoList() {
 		return oList;
@@ -301,6 +302,34 @@ public class SampleController  implements Initializable{
                     gen.genFile(tables);
 				}}
 		});
+		
+		genMybatisButton.addEventHandler(MouseEvent.ANY, new EventHandler<MouseEvent>(){
+			List<String> tableNames = new ArrayList<String>();
+			@Override
+			public void handle(MouseEvent event) {
+				if(event.getEventType()==MouseEvent.MOUSE_RELEASED&&flowPane.getChildren().size()>0)
+				{   ConnObj obj = ((SelectLabel)flowPane.getChildren().get(0)).getConnObj();
+				    for(Object tmp: flowPane.getChildren())
+				    {
+				    	if(tmp.getClass()==SelectLabel.class&&((SelectLabel)tmp).isSelected())
+				    	{
+				    		tableNames.add( ((SelectLabel)tmp).getText());
+				        }
+			}
+				    System.out.println(obj.getCatalog()+"************");
+				    System.out.println(obj.getDbConfiguration().getDriver());
+				    System.out.println(obj.getDbConfiguration().getUrl());
+				    System.out.println(obj.getDbConfiguration().getUserName());
+				    System.out.println(obj.getDbConfiguration().getPassWord());
+				    System.out.println(obj.getDbConfiguration().getDbType());
+				    if(tableNames.isEmpty()){
+				    	return;
+				    }
+				    List<Table> tables=gen.getTablesName(tableNames,obj.getConnection(),obj.getCatalog(),null,obj.getDbConfiguration().getDbType());  
+				    gen.genMybatisFile(tables,obj);
+				}}
+		});
+		
 		}
 
 }

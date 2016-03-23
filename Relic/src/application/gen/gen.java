@@ -40,6 +40,7 @@ import application.Context;
 import application.bean.ConnObj;
 import application.gen.bean.Column;
 import application.gen.bean.Table;
+import application.util.MybatisUtil;
 
 /**
  * @author tom.liu
@@ -226,6 +227,33 @@ public class gen {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+	}
+
+	
+	public static void genMybatisFile(List<Table> tableList, ConnObj obj) {
+		Properties pros = new Properties();
+		String configPath = "";
+		try {
+			pros.load(new FileInputStream("RelicConfig" + File.separator + "velocity.properties"));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("cant found the velocity.properties");
+			e.printStackTrace();
+		}
+		Velocity.init(pros);
+
+		VelocityContext context = new VelocityContext();
+		for (application.bean.Template tem : Context.templateList.getTemplates()) {
+			if (tableList.get(0).getDbType().equalsIgnoreCase(tem.getDbType()) && tem.getType() == 2) {
+				context.put("tableList", tableList);
+				context.put("dbConfiguration", obj.getDbConfiguration());
+				context.put("url", obj.getDbConfiguration().getUrl() + "/" + obj.getCatalog());
+				configPath = tem.getGenDir() + tem.getNamePre() + "generatorConfigMyBatis" + tem.getNameSuf();
+				gen(context, tem.getTemplatePath(), configPath);
+			}
+		}
+		MybatisUtil.genMybatis(configPath);
 	}
 
 }
