@@ -76,6 +76,7 @@ public class gen {
 		for (application.bean.Template tem : Context.templateList.getTemplates()) {
 			for (Table table : tableList) {
 				if (table.getDbType().equalsIgnoreCase(tem.getDbType())) {
+					context.put("cDir",Context.cDir);
 					context.put("schemaName", "main");
 					context.put("proName",
 							tem.getNamePre() + table.getTABLE_NAMEFU() + tem.getNameSuf().replace(".sql", ""));
@@ -94,6 +95,7 @@ public class gen {
 
 	public static void genUpdateScript(Table table) {
 		VelocityContext context = new VelocityContext();
+		context.put("cDir",Context.cDir);
 		context.put("schemaName", "main");
 		context.put("proName", "usp" + table.getTABLE_NAME() + "Update001");
 		context.put("tableName", table.getTABLE_NAME());
@@ -105,6 +107,7 @@ public class gen {
 
 	public static void genGetScript(Table table) {
 		VelocityContext context = new VelocityContext();
+		context.put("cDir",Context.cDir);
 		context.put("schemaName", "main");
 		context.put("proName", "usp" + table.getTABLE_NAME() + "Get001");
 		context.put("tableName", table.getTABLE_NAME());
@@ -115,6 +118,7 @@ public class gen {
 
 	public static void genCreateScript(Table table) {
 		VelocityContext context = new VelocityContext();
+		context.put("cDir",Context.cDir);
 		context.put("schemaName", "main");
 		context.put("proName", "usp" + table.getTABLE_NAME() + "Create001");
 		context.put("tableName", table.getTABLE_NAME());
@@ -126,6 +130,7 @@ public class gen {
 
 	public static void genMybatisMapper(Table table) {
 		VelocityContext context = new VelocityContext();
+		context.put("cDir",Context.cDir);
 		context.put("schemaName", "main");
 		context.put("proName", "usp" + table.getTABLE_NAME() + "Update001");
 		context.put("tableName", table.getTABLE_NAME());
@@ -247,6 +252,7 @@ public class gen {
 		for (application.bean.Template tem : Context.templateList.getTemplates()) {
 			if (tableList.get(0).getDbType().equalsIgnoreCase(tem.getDbType()) && tem.getType() == 2) {
 				context.put("tableList", tableList);
+				context.put("cDir",Context.cDir);
 				context.put("dbConfiguration", obj.getDbConfiguration());
 				context.put("url", obj.getDbConfiguration().getUrl() + "/" + obj.getCatalog());
 				configPath = tem.getGenDir() + tem.getNamePre() + "generatorConfigMyBatis" + tem.getNameSuf();

@@ -13,11 +13,23 @@
 
 <dbConfiguration>
     <driver>com.mysql.jdbc.Driver</driver>
-    <url>jdbc:mysql://192.168.116.132:3306</url>
-    <hostName>192.168.116.132</hostName>
+    <url>jdbc:mysql://127.0.0.1:3306</url>
+    <hostName>127.0.0.1</hostName>
     <userName>root</userName>
     <name>MysqlLocal</name>
     <passWord>1314251</passWord>
+    <port>1366</port>
+    <dbType>mySql</dbType>
+</dbConfiguration>
+
+
+<dbConfiguration>
+    <driver>com.mysql.jdbc.Driver</driver>
+    <url>jdbc:mysql://127.0.0.1:3306</url>
+    <hostName>10.5.0.44</hostName>
+    <userName>show</userName>
+    <name>核销real</name>
+    <passWord>show</passWord>
     <port>1366</port>
     <dbType>mySql</dbType>
 </dbConfiguration>

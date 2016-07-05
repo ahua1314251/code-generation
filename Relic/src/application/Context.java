@@ -15,6 +15,7 @@ import application.bean.Templates;
 import application.file.Resource;
 
 public class Context {
+public static String cDir = System.getProperty("user.dir");
 public static List<Connection> conList;
 public static DbConfigurations DbList;
 public static Templates templateList;
