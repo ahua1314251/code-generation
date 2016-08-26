@@ -29,8 +29,18 @@
  -->
 
 <Template>
-<templatePath>RelicConfig/template/mybatis/generatorConfigMyBatis3.xml</templatePath>
+<templatePath>RelicConfig/template/mybatis/generatorConfigMyBatis3Mac.xml</templatePath>
 <dbType>mySql</dbType>
+<genDir>RelicConfig/gen/mybatisSQL/</genDir>
+<namePre></namePre>
+<nameSuf>.xml</nameSuf>
+<type>2</type>
+</Template>
+
+
+<Template>
+<templatePath>RelicConfig/template/mybatis/generatorConfigMyBatis3MacOracle.xml</templatePath>
+<dbType>oracle</dbType>
 <genDir>RelicConfig/gen/mybatisSQL/</genDir>
 <namePre></namePre>
 <nameSuf>.xml</nameSuf>

@@ -18,7 +18,9 @@ public class MybatisUtil {
 	public static void genMybatis(String configPath) {
 		List<String> warnings = new ArrayList<String>();
 		boolean overwrite = true;
+		System.out.println(configPath);
 		File configFile = new File(configPath);
+		
 		ConfigurationParser cp = new ConfigurationParser(warnings);
 		Configuration config;
 		try {

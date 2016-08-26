@@ -2,6 +2,7 @@ package application.util;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Arrays;
 
 import javafx.geometry.Orientation;
 import javafx.scene.control.TreeItem;
@@ -130,5 +131,57 @@ public class JdbcUtil {
  }
 		
 	}
+	
+
+	public static void setTreeForOracle(TreeObj item ,ConnObj obj,TreeItem<TreeObj> treeItem,FlowPane flowPane ){
+		ResultSet rs;
+		flowPane.getChildren().clear();
+		flowPane.setOrientation(Orientation.VERTICAL);
+		System.out.println();
+		System.out.println(item.getTreeType());
+    	switch (item.getTreeType() ) {
+    	case CONNECTOR:
+    		
+			try {
+				rs = obj.getConnection().getMetaData().getSchemas();
+	    		 while(rs!=null&&rs.next())
+           		 {
+	    			 treeItem .getChildren().
+           			add(new TreeItem<TreeObj>(new TreeObj(rs.getString("TABLE_SCHEM"),obj,TreeType.SCHEMA),new ImageView(Context.Icon_Db)));
+           		 }
+			} catch (SQLException e) {
+	
+				e.printStackTrace();
+			}
+
+            break;
+
+        case SCHEMA:
+			try {
+				rs = obj.getConnection().getMetaData().getTables(null,item.getName(),null, (String[])Arrays.asList("TABLE").toArray());
+				SelectLabel label ;
+				//obj.setCatalog(item.getName());
+	    		 while(rs!=null&&rs.next())
+           		 {
+	    			 treeItem.getChildren().
+           			add(new TreeItem<TreeObj>(new TreeObj(rs.getString("TABLE_NAME"),obj,TreeType.TABLE),new ImageView(Context.Icon_Table)));
+	    			
+	    			    label=  new SelectLabel(rs.getString("TABLE_NAME"));
+	    				label.setWrapText(true);
+	    				label.setGraphic(new ImageView(Context.Icon_Table2));
+	    				label.getStyleClass().add("label1");
+	    				obj.setSchema(item.getName());
+	    				label.setConnObj(obj);
+	    			    flowPane.getChildren().add(label);
+           		 }
+			} catch (SQLException e) {
+	
+				e.printStackTrace();
+			}  
+            break;
+ }
+		
+	}
+	
 	
 }

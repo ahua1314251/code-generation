@@ -9,6 +9,11 @@ public class test extends Relic{
 		
 		Relic relic = new Relic();
 		relic.start();
+//		
+//		JFrame jf = new JFrame();
+//		jf.setBounds(200, 200, 400, 400);
+//		jf.setVisible(true);
+//		jf.setTitle(System.getProperty("user.dir"));
 	}
 
 }

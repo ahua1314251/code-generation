@@ -12,6 +12,7 @@ DbConfiguration dbConfiguration;
 String catalog;
 String url="jdbc:sqlserver://127.0.0.1:1433";
 String url2="jdbc:mysql://localhost:3306";
+String schema ;
 public ConnObj(){
 	
 }
@@ -28,16 +29,16 @@ public Connection getConnection() {
 		
 		System.out.println(dbConfiguration.getDriver());
 /*		Class.forName(dbConfiguration.getDriver());*/
-		Class.forName("com.mysql.jdbc.Driver");
+//		Class.forName("com.mysql.jdbc.Driver");
 		Class.forName(dbConfiguration.getDriver());
 		System.out.println("driver:--"+dbConfiguration.getDriver());
-		System.out.println("geting Connection "+url + dbConfiguration.getUserName()+"||"+dbConfiguration.getPassWord());
+		System.out.println("geting Connection "+dbConfiguration.getUrl() + dbConfiguration.getUserName()+"||"+dbConfiguration.getPassWord());
 		connection = DriverManager.getConnection(dbConfiguration.getUrl(),dbConfiguration.getUserName(),dbConfiguration.getPassWord());
 		 
 	} catch (Exception e) {
 		e.printStackTrace();
 	}
-System.out.println("get Connection "+url);
+System.out.println("get Connection "+dbConfiguration.getUrl());
 	return connection;
 	
 }
@@ -78,6 +79,12 @@ public static void main(String args[]){
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}*/
+}
+public String getSchema() {
+	return schema;
+}
+public void setSchema(String schema) {
+	this.schema = schema;
 }
 
 }

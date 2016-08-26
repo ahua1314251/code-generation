@@ -251,10 +251,12 @@ public class gen {
 		VelocityContext context = new VelocityContext();
 		for (application.bean.Template tem : Context.templateList.getTemplates()) {
 			if (tableList.get(0).getDbType().equalsIgnoreCase(tem.getDbType()) && tem.getType() == 2) {
+				context.put("driver", obj.getDbConfiguration().getDriver());
 				context.put("tableList", tableList);
 				context.put("cDir",Context.cDir);
+				context.put("schema",obj.getSchema());
 				context.put("dbConfiguration", obj.getDbConfiguration());
-				context.put("url", obj.getDbConfiguration().getUrl() + "/" + obj.getCatalog());
+				context.put("url", obj.getDbConfiguration().getUrl()  + (obj.getCatalog()==null?"": "/"+obj.getCatalog()));
 				configPath = tem.getGenDir() + tem.getNamePre() + "generatorConfigMyBatis" + tem.getNameSuf();
 				gen(context, tem.getTemplatePath(), configPath);
 			}

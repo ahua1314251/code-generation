@@ -8,7 +8,8 @@ public class Table {
 	private String TABLE_NAME;
 	private List<Column> columns;
 	private String dbType;
-
+	private String schema;
+    
 	Table() {
 
 	}
@@ -52,6 +53,14 @@ public class Table {
 
 	public void setDbType(String dbType) {
 		this.dbType = dbType;
+	}
+
+	public String getSchema() {
+		return schema;
+	}
+
+	public void setSchema(String schema) {
+		this.schema = schema;
 	}
 
 }

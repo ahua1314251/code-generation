@@ -5,7 +5,7 @@
 
 <generatorConfiguration>
 <!-- <classPathEntry location="D:/Users/e_resource/e_resource/WebContent/WEB-INF/lib/driver/sqljdbc4.jar" /> -->
-<classPathEntry location="/Users/thliu/IdeaProjects/code-generation/Relic/lib/mysql-connector-java-5.1.7-bin.jar" /> 
+<classPathEntry location="/Users/thliu/Documents/workspace/webTest/WebContent/WEB-INF/lib/ojdbc-6.jar" /> 
 
   <context id="DB2Tables" targetRuntime="MyBatis3">
 	<commentGenerator>
@@ -13,7 +13,7 @@
 		<property name="suppressAllComments" value="true" />
 		<!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
 	</commentGenerator>
-	<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+	<jdbcConnection driverClass="$driver"
 		connectionURL="$url" userId="$dbConfiguration.userName" password="$dbConfiguration.passWord">
 	</jdbcConnection>
     
@@ -24,30 +24,33 @@
      <property name="forceBigDecimals" value="false" />  
   </javaTypeResolver> 
 
-    <javaModelGenerator targetPackage="winker.dal.domain" targetProject="">
-      <property name="enableSubPackages" value="true" />
+    <javaModelGenerator targetPackage="com.nfsq.dubbo.dal.cms.product.domain" targetProject="/Users/thliu/Documents/我的数据/gen/src">
+      <property name="enableSubPackages" value="false" />
       <property name="trimStrings" value="true" />
     </javaModelGenerator>
 
-    <sqlMapGenerator targetPackage="winker.dal.mapper"  targetProject="">
-      <property name="enableSubPackages" value="true" />
+    <sqlMapGenerator targetPackage="com.nfsq.dubbo.dal.cms.product.dao"  targetProject="/Users/thliu/Documents/我的数据/gen/src">
+      <property name="enableSubPackages" value="false" />
     </sqlMapGenerator>
 
-    <javaClientGenerator type="XMLMAPPER" targetPackage="cwinker.dal.mapper"  targetProject="">
-      <property name="enableSubPackages" value="true" />
+    <javaClientGenerator type="XMLMAPPER" targetPackage="com.nfsq.dubbo.dal.cms.product.dao"  targetProject="/Users/thliu/Documents/我的数据/gen/src">
+      <property name="enableSubPackages" value="false" />
     </javaClientGenerator>
 
 
 	#foreach($table in $tableList)
-	<table schema="" tableName="$table.TABLE_NAME" domainObjectName="$table.getTABLE_NAMEFU()"
-		enableSelectByPrimaryKey="true" enableDeleteByPrimaryKey="true"
-		enableInsert="true" enableUpdateByPrimaryKey="true"
-		enableCountByExample="false" enableSelectByExample="false" enableDeleteByExample="false" enableUpdateByExample="false"		
-		>
+	<table schema="$schema" tableName="$table.TABLE_NAME" domainObjectName="$table.getTABLE_NAMEFU()"
+        enableCountByExample="false" enableUpdateByExample="false" 
+        enableDeleteByExample="false" enableSelectByExample="false" 
+        selectByExampleQueryId="true" enableSelectByPrimaryKey="true" 
+        enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true">
+        
+        </table>
+		
 		
 		<!-- <property name="useActualColumnNames" value="true"/> -->
 	<!-- 	<generatedKey column="id" sqlStatement="sqlServer" identity="true" /> -->
-	</table>
+	
  #end
   </context>
 </generatorConfiguration>

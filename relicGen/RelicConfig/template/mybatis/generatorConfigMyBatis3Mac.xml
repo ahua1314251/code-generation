@@ -24,16 +24,16 @@
      <property name="forceBigDecimals" value="false" />  
   </javaTypeResolver> 
 
-    <javaModelGenerator targetPackage="winker.dal.domain" targetProject="">
+    <javaModelGenerator targetPackage="winker.dal.domain" targetProject="/Users/thliu/Documents/我的数据/gen/src">
       <property name="enableSubPackages" value="true" />
       <property name="trimStrings" value="true" />
     </javaModelGenerator>
 
-    <sqlMapGenerator targetPackage="winker.dal.mapper"  targetProject="">
+    <sqlMapGenerator targetPackage="winker.dal.mapper"  targetProject="/Users/thliu/Documents/我的数据/gen/src">
       <property name="enableSubPackages" value="true" />
     </sqlMapGenerator>
 
-    <javaClientGenerator type="XMLMAPPER" targetPackage="cwinker.dal.mapper"  targetProject="">
+    <javaClientGenerator type="XMLMAPPER" targetPackage="winker.dal.mapper"  targetProject="/Users/thliu/Documents/我的数据/gen/src">
       <property name="enableSubPackages" value="true" />
     </javaClientGenerator>
 
@@ -42,7 +42,8 @@
 	<table schema="" tableName="$table.TABLE_NAME" domainObjectName="$table.getTABLE_NAMEFU()"
 		enableSelectByPrimaryKey="true" enableDeleteByPrimaryKey="true"
 		enableInsert="true" enableUpdateByPrimaryKey="true"
-		enableCountByExample="false" enableSelectByExample="false" enableDeleteByExample="false" enableUpdateByExample="false"		
+		enableCountByExample="false" enableSelectByExample="false" enableDeleteByExample="false" enableUpdateByExample="false"
+		
 		>
 		
 		<!-- <property name="useActualColumnNames" value="true"/> -->

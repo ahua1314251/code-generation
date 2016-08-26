@@ -123,9 +123,13 @@ public class SampleController  implements Initializable{
 			                	{
 			                		JdbcUtil.setTreeForSQLSERVER(getItem(),obj, this$.getTreeItem(), flowPane);
 			                	}
-			                	else
+			                	else if("mySql".equalsIgnoreCase(obj.getDbConfiguration().getDbType()))
 			                	{
 			                		JdbcUtil.setTreeForMYSQL(getItem(),obj, this$.getTreeItem(), flowPane);
+			                	}
+			                	else if("oracle".equalsIgnoreCase(obj.getDbConfiguration().getDbType()))
+			                	{
+			                		JdbcUtil.setTreeForOracle(getItem(),obj, this$.getTreeItem(), flowPane);
 			                	}
 			                	
 			                //	this$.getTreeItem().getChildren().add(new TreeItem<TreeObj>(new TreeObj("1111111",3333))); 	
