@@ -1,7 +1,7 @@
-DROP PROCEDURE IF EXISTS `uspMaterialUpdate001`;
+DROP PROCEDURE IF EXISTS `uspMaterialCreate001`;
 DELIMITER ;;
 
-CREATE  PROCEDURE `uspMaterialUpdate001`(
+CREATE  PROCEDURE `uspMaterialCreate001`(
                 p_ID  INT ,
                 p_MaterialName  VARCHAR (30),
                 p_MaterialQuantity  INT ,
@@ -15,7 +15,7 @@ CREATE  PROCEDURE `uspMaterialUpdate001`(
         )
 BEGIN
 INSERT INTO `material`
-      (      `ID`,
+     (      `ID`,
             `MaterialName`,
             `MaterialQuantity`,
             `ApplicableModels`,
@@ -27,7 +27,7 @@ INSERT INTO `material`
             `OutTime`
          )
      VALUES
-      (      p_ID,
+    (      p_ID,
            p_MaterialName,
            p_MaterialQuantity,
            p_ApplicableModels,

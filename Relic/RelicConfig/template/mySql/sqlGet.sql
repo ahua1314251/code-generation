@@ -1,7 +1,15 @@
 DROP PROCEDURE IF EXISTS `$proName`;
 DELIMITER ;;
 CREATE PROCEDURE `$proName`(
-	p_***** INT
+    #set($i=0)
+    #foreach($column in $columns)
+    #set($i=$i+1)
+    #if($i==$columns.size())
+    p_$column.getCOLUMN_NAME()  $column.getTYPE_NAME() $column.getCOLUMN_SIZE()
+    #else
+    p_$column.getCOLUMN_NAME()  $column.getTYPE_NAME() $column.getCOLUMN_SIZE(),
+    #end
+    #end
 	)
 BEGIN
 SELECT 
@@ -15,7 +23,7 @@ SELECT
     #end
     #end
 FROM `$tableName`
-WHERE ***** = P_******;
+WHERE ID = P_ID;
 END
 ;;
 DELIMITER ;

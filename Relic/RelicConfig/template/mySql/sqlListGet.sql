@@ -1,6 +1,6 @@
 DROP PROCEDURE IF EXISTS `$proName`;
 DELIMITER ;;
-CREATE  PROCEDURE `$proName`(
+CREATE PROCEDURE `$proName`(
     #set($i=0)
     #foreach($column in $columns)
     #set($i=$i+1)
@@ -10,20 +10,22 @@ CREATE  PROCEDURE `$proName`(
     p_$column.getCOLUMN_NAME()  $column.getTYPE_NAME() $column.getCOLUMN_SIZE(),
     #end
     #end
-)
+	)
 BEGIN
-UPDATE $tableName
-SET #set($i=0)
+SELECT 
+    #set($i=0)
     #foreach($column in $columns)
-     #set($i=$i+1)
-     #if($i==$columns.size())
-    `$column.getCOLUMN_NAME()` = p_$column.getCOLUMN_NAME()
-     #else
-    `$column.getCOLUMN_NAME()` = p_$column.getCOLUMN_NAME(),
+    #set($i=$i+1)
+    #if($i==$columns.size())
+    $column.getCOLUMN_NAME()
+    #else
+    $column.getCOLUMN_NAME(),
     #end
     #end
-WHERE ID = p_ID;
-
+FROM `$tableName`
+WHERE 1=1;
 END
 ;;
 DELIMITER ;
+
+

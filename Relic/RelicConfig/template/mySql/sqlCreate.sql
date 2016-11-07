@@ -15,7 +15,7 @@ CREATE  PROCEDURE `$proName`(
 BEGIN
 INSERT INTO `$tableName`
    #set($i=0)
-   (#foreach($column in $columns)
+  (#foreach($column in $columns)
    #set($i=$i+1)
    #if($i==$columns.size())
    `$column.getCOLUMN_NAME()`
@@ -26,7 +26,7 @@ INSERT INTO `$tableName`
    )
      VALUES
    #set($i=0)
-   (#foreach($column in $columns)
+ (#foreach($column in $columns)
    #set($i=$i+1)
    #if($i==$columns.size())
    p_$column.getCOLUMN_NAME()

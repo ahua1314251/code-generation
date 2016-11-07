@@ -18,7 +18,7 @@ stage.initModality(Modality.APPLICATION_MODAL);
 stage.initOwner(stg);
 stage.setTitle("Top Stage With Modality");
 Group root = new Group();
-Scene scene = new Scene(root, 300, 250, Color.LIGHTGREEN);
+Scene scene = new Scene(root, 300, 250);
 
 btn.setOnAction(new EventHandler<ActionEvent>() {
 	

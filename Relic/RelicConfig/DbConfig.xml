@@ -8,17 +8,40 @@
     <hostName>127.0.0.1</hostName>
     <port>1433</port>
     <name>SQL_local</name>
-    <dbType>sqlServer</dbType>
+    <dbType>sqlserver</dbType>
 </dbConfiguration>
 
 <dbConfiguration>
     <driver>com.mysql.jdbc.Driver</driver>
-    <url>jdbc:mysql://localhost:3306</url>
+    <url>jdbc:mysql://127.0.0.1:3306</url>
     <hostName>127.0.0.1</hostName>
     <userName>root</userName>
     <name>MysqlLocal</name>
     <passWord>1314251</passWord>
     <port>1366</port>
     <dbType>mySql</dbType>
+</dbConfiguration>
+
+
+<dbConfiguration>
+    <driver>com.mysql.jdbc.Driver</driver>
+    <url>jdbc:mysql://127.0.0.1:3306</url>
+    <hostName>10.5.0.44</hostName>
+    <userName>show</userName>
+    <name>核销real</name>
+    <passWord>show</passWord>
+    <port>1366</port>
+    <dbType>mySql</dbType>
+</dbConfiguration>
+
+<dbConfiguration>
+    <driver>oracle.jdbc.driver.OracleDriver</driver>
+    <url>jdbc:oracle:thin:@//10.1.3.178:1521/Tzstestdbii</url>
+    <hostName>10.1.3.178</hostName>
+    <userName>cms_new</userName>
+    <name>oracle</name>
+    <passWord>cms</passWord>
+    <port>1521</port>
+    <dbType>oracle</dbType>
 </dbConfiguration>
 </dbConfigurations>

@@ -54,7 +54,7 @@
                           </items>
                         </MenuButton>
                         <Button fx:id="genButton" mnemonicParsing="false" prefHeight="42.0" prefWidth="99.0" text="生成代码" />
-                        <Button fx:id="genMybatisButton" mnemonicParsing="false" prefHeight="42.0" prefWidth="99.0" text="生成代码" />
+                        <Button fx:id="genMybatisButton" mnemonicParsing="false" prefHeight="42.0" prefWidth="99.0" text="生成Mybatis代码" />
                      </children>
                   </HBox>
                </children></AnchorPane>

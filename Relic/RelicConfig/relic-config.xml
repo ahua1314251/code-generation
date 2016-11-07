@@ -1,34 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Templates>
-<Template>
-<templatePath>RelicConfig/template/mySql/sqlCreate.sql</templatePath>
-<genDir>RelicConfig/gen/mysql/</genDir>
-<namePre>usp</namePre>
-<nameSuf>Create001.sql</nameSuf>
+
+
+<!-- <Template>
+<templatePath>RelicConfig/template/mybatisSQL/Mapper.xml</templatePath>
+<dbType>mySql</dbType>
+<genDir>RelicConfig/gen/mybatisSQL/</genDir>
+<namePre></namePre>
+<nameSuf>Mapper.xml</nameSuf>
 </Template>
 
 <Template>
-<templatePath>RelicConfig/template/mySql/sqlGet.sql</templatePath>
-<genDir>RelicConfig/gen/mysql/</genDir>
-<namePre>usp</namePre>
-<nameSuf>Get001.sql</nameSuf>
-</Template>
-
-<Template>
-<templatePath>RelicConfig/template/mySql/sqlUpdate.sql</templatePath>
-<genDir>RelicConfig/gen/mysql/</genDir>
-<namePre>usp</namePre>
-<nameSuf>Update001.sql</nameSuf>
+<templatePath>RelicConfig/template/mybatisSQL/Mapper.java</templatePath>
+<dbType>mySql</dbType>
+<genDir>RelicConfig/gen/mybatisSQL/</genDir>
+<namePre></namePre>
+<nameSuf>Mapper.java</nameSuf>
 </Template>
 
 
 <Template>
-<templatePath>RelicConfig/template/mybatis/Mapper.xml</templatePath>
-<genDir>RelicConfig/gen/myBatis/</genDir>
+<templatePath>RelicConfig/template/mybatisSQL/bean.java</templatePath>
+<dbType>mySql</dbType>
+<genDir>RelicConfig/gen/mybatisSQL/</genDir>
+<namePre></namePre>
+<nameSuf>.java</nameSuf>
+</Template>
+ -->
+
+<Template>
+<templatePath>RelicConfig/template/mybatis/generatorConfigMyBatis3Mac.xml</templatePath>
+<dbType>mySql</dbType>
+<genDir>RelicConfig/gen/mybatisSQL/</genDir>
 <namePre></namePre>
 <nameSuf>.xml</nameSuf>
+<type>2</type>
 </Template>
 
 
+<Template>
+<templatePath>RelicConfig/template/mybatis/generatorConfigMyBatis3MacOracle.xml</templatePath>
+<dbType>oracle</dbType>
+<genDir>RelicConfig/gen/mybatisSQL/</genDir>
+<namePre></namePre>
+<nameSuf>.xml</nameSuf>
+<type>2</type>
+</Template>
 
 </Templates>

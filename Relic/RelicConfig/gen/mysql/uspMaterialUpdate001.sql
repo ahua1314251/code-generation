@@ -24,9 +24,8 @@ SET              `ID` = p_ID,
                  `Remark` = p_Remark,
                  `EntryTime` = p_EntryTime,
                  `OutTime` = p_OutTime
-         WHERE ******* = ********
+         WHERE ID = p_ID;
 
-IF (@@rowcount<>0)
-RETURN 0;
 END
-
+;;
+DELIMITER ;

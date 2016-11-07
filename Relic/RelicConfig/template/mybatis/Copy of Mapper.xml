@@ -9,9 +9,9 @@
    Call usp${tableNameFU}Create001(
         #foreach($column in $columns)
     #if($velocityCount==$columns.size())   
-     #{$column.getCOLUMN_NAMEFL(),jdbcType= $column.getTYPE_NAME_MyBatis()}
+     #{$column.getCOLUMN_NAMEFL(),jdbcType= $column.TYPE_NAME}
     #else
-     #{$column.getCOLUMN_NAMEFL(),jdbcType=$column.getTYPE_NAME_MyBatis()}, 
+     #{$column.getCOLUMN_NAMEFL(),jdbcType=$column.TYPE_NAME}, 
     #end
     #end
     )
@@ -25,9 +25,9 @@
    Call usp${tableNameFU}Update001(
         #foreach($column in $columns)
     #if($velocityCount==$columns.size())   
-     #{$column.getCOLUMN_NAMEFL(),jdbcType= $column.getTYPE_NAME_MyBatis()}
+     #{$column.getCOLUMN_NAMEFL(),jdbcType= $column.TYPE_NAME}
     #else
-     #{$column.getCOLUMN_NAMEFL(),jdbcType=$column.getTYPE_NAME_MyBatis()}, 
+     #{$column.getCOLUMN_NAMEFL(),jdbcType=$column.TYPE_NAME}, 
     #end
     #end
     )
@@ -41,9 +41,9 @@
    Call usp${tableNameFU}Get001(
         #foreach($column in $columns)
     #if($velocityCount==$columns.size())   
-     #{$column.getCOLUMN_NAMEFL(),jdbcType= $column.getTYPE_NAME_MyBatis()}
+     #{$column.getCOLUMN_NAMEFL(),jdbcType= $column.TYPE_NAME}
     #else
-     #{$column.getCOLUMN_NAMEFL(),jdbcType=$column.getTYPE_NAME_MyBatis()}, 
+     #{$column.getCOLUMN_NAMEFL(),jdbcType=$column.TYPE_NAME}, 
     #end
     #end
     )
@@ -57,9 +57,9 @@
    Call usp${tableNameFU}Delete001(
         #foreach($column in $columns)
     #if($velocityCount==$columns.size())   
-     #{$column.getCOLUMN_NAMEFL(),jdbcType= $column.getTYPE_NAME_MyBatis()}
+     #{$column.getCOLUMN_NAMEFL(),jdbcType= $column.TYPE_NAME}
     #else
-     #{$column.getCOLUMN_NAMEFL(),jdbcType=$column.getTYPE_NAME_MyBatis()}, 
+     #{$column.getCOLUMN_NAMEFL(),jdbcType=$column.TYPE_NAME}, 
     #end
     #end
     )
@@ -68,19 +68,15 @@
     </select>
     
     
-    <select id="${tableNameFL}Search" parameterType="${tableNameFU}Criteria"  statementType="CALLABLE">
+    <select id="${tableNameFL}Search" parameterType="$tableNameFU"  statementType="CALLABLE">
     <![CDATA[
    {
    Call usp${tableNameFU}Search001(
-			 #{limit,jdbcType=INTEGER},
-		     #{offset,jdbcType=INTEGER},
-		     #{sort,jdbcType=VARCHAR}, 
-		     #{order,jdbcType=VARCHAR}, 
         #foreach($column in $columns)
     #if($velocityCount==$columns.size())   
-     #{$column.getCOLUMN_NAMEFL(),jdbcType= $column.getTYPE_NAME_MyBatis()}
+     #{$column.getCOLUMN_NAMEFL(),jdbcType= $column.TYPE_NAME}
     #else
-     #{$column.getCOLUMN_NAMEFL(),jdbcType=$column.getTYPE_NAME_MyBatis()}, 
+     #{$column.getCOLUMN_NAMEFL(),jdbcType=$column.TYPE_NAME}, 
     #end
     #end
     )
@@ -94,13 +90,12 @@
    Call usp${tableNameFU}ListGet001(
         #foreach($column in $columns)
     #if($velocityCount==$columns.size())   
-     #{$column.getCOLUMN_NAMEFL(),jdbcType= $column.getTYPE_NAME_MyBatis()}
+     #{$column.getCOLUMN_NAMEFL(),jdbcType= $column.TYPE_NAME}
     #else
-     #{$column.getCOLUMN_NAMEFL(),jdbcType=$column.getTYPE_NAME_MyBatis()}, 
+     #{$column.getCOLUMN_NAMEFL(),jdbcType=$column.TYPE_NAME}, 
     #end
     #end
-    )
-      }
+    )}
        ]]>
     </select>
     

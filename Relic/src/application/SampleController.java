@@ -5,6 +5,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import application.bean.ConnObj;
+import application.bean.DbConfiguration;
+import application.bean.SelectLabel;
+import application.bean.TreeNode;
+import application.bean.TreeObj;
+import application.file.Resource;
+import application.gen.gen;
+import application.gen.bean.Table;
+import application.util.JdbcUtil;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
@@ -13,6 +22,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TreeCell;
 import javafx.scene.control.TreeItem;
@@ -25,15 +35,6 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Callback;
-import application.bean.ConnObj;
-import application.bean.DbConfiguration;
-import application.bean.SelectLabel;
-import application.bean.TreeNode;
-import application.bean.TreeObj;
-import application.file.Resource;
-import application.gen.gen;
-import application.gen.bean.Table;
-import application.util.JdbcUtil;
 
 public class SampleController  implements Initializable{
 	final Rectangle selection = new Rectangle() ;
@@ -48,6 +49,7 @@ public class SampleController  implements Initializable{
      @FXML AnchorPane flowPaneRoot;
      @FXML Button genButton;
      @FXML Button genMybatisButton;
+     @FXML MenuItem mItemMySql ;
      
 	public ObservableList<String> getoList() {
 		return oList;
@@ -60,6 +62,7 @@ public class SampleController  implements Initializable{
 		initLogo();
 		initTreeView();
 		initGenButton();
+		AddDbAction addDbAction =new  AddDbAction(mItemMySql);
 		for(int i=0; i<50;i++){
 			SelectLabel label =  new SelectLabel("asd");
 			
@@ -73,6 +76,9 @@ public class SampleController  implements Initializable{
 		flowPane.setPadding(new Insets(5, 0, 0, 5));
 		flowPane.setVgap(5);
 		flowPane.setHgap(5);
+		flowPane.setMaxSize(200d, 200d);
+		flowPane.autosize();
+
 		flowPaneRoot.getChildren().add(selection);	
 	}
 
